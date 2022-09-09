@@ -86,12 +86,51 @@
 // Since the sum of its digits' factorial of 2! = 2 is equal to number itself, then its a Strong.
 // strong_num(150) ==> return "Not Strong !!"
 // Since the sum of its digits' factorial of 1! + 5! + 0! = 122 is not equal to number itself, Then it's Not Strong .
+
+// const strongNumber = (numero) => {
+//   let faktor = [];
+//   for (i of String(numero)) {
+//     let carpim = [];
+//     for (let ii = i; ii > 0; ii--) {
+//       carpim.push(+ii);
+//     }
+//     faktor.push(carpim.reduce((x, y) => x * y));
+//   }
+//   faktor = faktor.reduce((a, b) => a + b);
+//   if (faktor == numero) {
+//     console.log("strong number");
+//   } else {
+//     console.log("not");
+//   }
+//   console.log(faktor);
+// };
+// console.log(strongNumber(123));
+
 //************************************************************QUESTION 6***************************** */
 // Complete the solution so that it splits the string into pairs of two characters.
 //  If the string contains an odd number of characters then it should replace the missing second character of the final pair with an underscore ('_').
 // Examples:
 // * 'abc' =>  ['ab', 'c_']
 // * 'abcdef' => ['ab', 'cd', 'ef']
+
+// let q6 = (string) => {
+//   let arrString = [];
+//   let j = 0;
+
+//   if (string.length % 2) {
+//     string = string.concat("_");
+//   }
+//   while (true) {
+//     for (i = 2; i <= string.length; i += 2) {
+//       arrString.push(string.slice(j, i));
+//       j += 2;
+//     }
+
+//     return arrString;
+//   }
+// };
+
+// console.log(q6("hasan"));
 //************************************************************QUESTION 7***************************** */
 //Write a function to accept two arrays. Does the first array contain all elements represented in the second array?
 
@@ -100,9 +139,16 @@
 // }​
 // console.log(containsAllElements(["monday", "tuesday"], ["tuesday"])) // false
 // console.log(containsAllElements([1,2,3,4,5,6,78,9,], [1,2,3,5]))  //true
-
+// const containsAllElements = (firstArray, secondArray) => {
+//   let newArr = secondArray.filter((item) => firstArray.includes(item));
+//   return newArr.length == secondArray.length;
+// };
+// console.log(containsAllElements([1, 2, 3, 4, 5, 6, 78, 9], [1, 2, 3, 5, 2]));
 //************************************************************QUESTION 8***************************** */
 //Write a function that accepts an array as a parameter and returns the first item that smaller than the average of its elements​
-// const smallerThanAvg = ([1,2,6]) => {
-//     // your code
-// }
+// const smallerThanAvg = (array) => {
+//   avg = array.reduce((x, y) => x + y) / array.length;
+//   let smallerARr = array.filter((o) => o < avg);
+//   return smallerARr[smallerARr.length - 1];
+// };
+// console.log(smallerThanAvg([1, 2, 3, 4, 5, 6, 32]));
